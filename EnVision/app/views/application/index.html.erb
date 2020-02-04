@@ -41,10 +41,13 @@
         <% end %>
         <p> Your diet has an impact on the environment! These are the effects it has.</p>
         <ul class="list-group list-group-flush">
+          <li class="list-group-item"> <%= @diet.get_diet_nutrition %></li>
+
           <li class="list-group-item"> <%= @diet.get_diet_environment %></li>
+
           <li class="list-group-item"> About <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
+          <li class="list-group-item">Thats about <%= (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year. </li>
         </ul>
-        <p>Thats a total of <%= (@diet.get_diet_environment.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2e </p>
       </div><!-- class = card-body -->
       <div class="card-footer">
         <a href="/">Take survey again!</a>
