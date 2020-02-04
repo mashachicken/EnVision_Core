@@ -19,6 +19,7 @@
   </div><!-- class = col-4 -->
   <div class="col-1"></div>
   <div class="col-7">
+    <img src='https://i1.wp.com/shrinkthatfootprint.com/wp-content/uploads/2013/01/samplediets1.gif?resize=540%2C435'>
     <% if params[:dietOptions] %>
     <% @diet = Diet.new(params[:dietOptions]) %>
     <div class="card">
@@ -28,7 +29,7 @@
       <div class="card-body">
         <% case params[:dietOptions] %>
         <% when "Average" %>
-        <p> You have an average diet </p>
+        <p> You have chosen an average diet </p>
         <% when "Meat Lover" %>
         <p> You love consuming connective tissues of animals </p>
         <% when "No Beef" %>
@@ -40,8 +41,10 @@
         <% end %>
         <p> Your diet has an impact on the environment! These are the effects it has.</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"> <%= @diet.get_diet_environment %> tons of CO2 emitted to meet your needs per year!</li>
+          <li class="list-group-item"> <%= @diet.get_diet_environment %></li>
+          <li class="list-group-item"> ~<%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 emited due to your driving habits </li>
         </ul>
+        <p>Thats a total of <%= (@diet.get_diet_environment.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 </p>
       </div><!-- class = card-body -->
       <div class="card-footer">
         <a href="/">Take survey again!</a>
@@ -50,13 +53,14 @@
     <% else %>
     <div class="card">
       <div class="card-header">
-        <h3> Specific survey header </h3>
+        <h3>Your Carbon Footprint</h3>
       </div><!-- class = card-body -->
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <form id="survey">
             <div class="form-group">
-              <label for="diet type">Describe your diet</label>
+              <p>Question 1</p>
+              <label for="diet type">Choose the diet from those above that most closely matches your own </label>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="dietOptions" id="averageDiet" value="Average" checked>
                 <label class="form-check-label" for="averageDiet">
@@ -87,6 +91,12 @@
                   Vegan
                 </label>
               </div>
+            </div>
+            <div class="form-group">
+              <p>Question 2</p>
+              <p>How many miles do you drive on a particular day?</p>
+              <input type="number" name="miles" min=0>
+              <label for="miles">Miles</label>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
