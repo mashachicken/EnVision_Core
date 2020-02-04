@@ -1,5 +1,6 @@
-cd Envision_api
+cd Envision
 bundle install
 rake db:create
 rake db:schema:load
-rails s -p 3001
+rake db:seed
+rails s

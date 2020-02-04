@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: "application#index"
-  devise_for :users, controllers: { sessions: :sessions },
-                       path_names: { sign_in: :login }
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   resource :user, only: [:new, :create, :index, :show]
   resources :questions do
     resources :answers
