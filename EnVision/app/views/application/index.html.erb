@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col-4">
+  <div class="col-1"></div>
+  <div class="col-3">
     <div class="card">
       <div class="card-header">
         <h4 class="card-text"> Informative header </h4>
@@ -34,9 +35,9 @@
         <p id="test"> test </p>
       </div><!-- class = card-body -->
     </div><!-- class = card -->
-  </div><!-- class = col-4 -->
+  </div><!-- class = col-3 -->
   <div class="col-1"></div>
-  <div class="col-7">
+  <div class="col-6">
     <img src='https://i1.wp.com/shrinkthatfootprint.com/wp-content/uploads/2013/01/samplediets1.gif?resize=540%2C435'>
     <% if params[:dietOptions] %>
     <% @diet = Diet.new(params[:dietOptions]) %>
@@ -47,7 +48,7 @@
       <div class="card-body">
         <p> Your diet has an impact on the environment! These are the effects it has.</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"> 
+          <li class="list-group-item">
             <p><%= @diet.get_diet_nutrition %><p>
           </li>
 
@@ -115,5 +116,6 @@
       </div><!-- class = card-body -->
     </div><!-- class = card -->
     <% end %>
-  </div><!-- class = col-7 -->
+  </div><!-- class = col-6 -->
+  <div class="col-1"></div>
 </div><!-- class = row -->
