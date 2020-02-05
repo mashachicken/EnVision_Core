@@ -50,7 +50,7 @@
           <li class="list-group-item"><h6>Environmental impact of your diet:</h6>  <%= @diet.get_diet_environment %></li>
 
           <li class="list-group-item"><h6>Environmental impact of your driving:</h6> <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
-          <li class="list-group-item"><h5>Thats about <%= @total (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year.</h5> </li>
+          <li class="list-group-item"><h5>Thats about <%= @total = (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year.</h5> </li>
         </ul>
       </div><!-- class = card-body -->
       <div class="card-footer">

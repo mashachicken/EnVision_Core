@@ -22,10 +22,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    # @users = User.all
-    @posts = @user.posts
-    render :show
+    @user = User.find(current_user.id)
+    @users = User.all
+    render :user
   end
 
   def result

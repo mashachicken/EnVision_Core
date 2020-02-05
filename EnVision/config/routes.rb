@@ -6,7 +6,5 @@ Rails.application.routes.draw do
   end
   get '/save_result' => 'users#result'
   resource :user, only: [:new, :create, :index, :show]
-  resources :questions do
-    resources :answers
-  end
+
 end
