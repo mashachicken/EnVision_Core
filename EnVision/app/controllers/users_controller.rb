@@ -35,9 +35,23 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
+  def add_pic
+    @user.pic = params[:pic]
+    @user = User.find(current_user.id)
+    @user.save
+    render :user
+  end
+
+  def add_quote
+    @user.quote = params[:quote]
+    @user = User.find(current_user.id)
+    @user.save
+    render :user
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :password, :username, :footprint)
+    params.require(:user).permit(:email, :username, :password, :username, :footprint, :pic, :quote)
   end
 end
