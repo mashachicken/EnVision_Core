@@ -1,0 +1,6 @@
+This file contains attributions for open source art used herein this directory, by file name.
+
+
+=== Paulina Riva ===
+Clouds.png
+city.png
