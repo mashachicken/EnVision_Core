@@ -50,11 +50,20 @@
           <li class="list-group-item"><h6>Environmental impact of your diet:</h6>  <%= @diet.get_diet_environment %></li>
 
           <li class="list-group-item"><h6>Environmental impact of your driving:</h6> <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
-          <li class="list-group-item"><h5>Thats about <%= (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year.</h5> </li>
+          <li class="list-group-item"><h5>Thats about <%= @total (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year.</h5> </li>
         </ul>
       </div><!-- class = card-body -->
       <div class="card-footer">
-        <a href="/">Take survey again!</a>
+        <a href="/">Take survey again!</a><br>
+
+        <form class="" action="/save_result" method="get">
+
+          <input type="hidden" name="total" value= "<%= @total %>">
+
+          <button type="submit" class="btn btn-primary">Save Results</button>
+        </form>
+
+        <!-- <a href="/save_result">Save your results</a> -->
       </div><!-- class = card-footer -->
     </div><!-- class = card -->
     <% else %>
@@ -110,6 +119,7 @@
         </ul>
       </div><!-- class = card-body -->
     </div><!-- class = card -->
+    <%=flash[:result]%>
     <% end %>
   </div><!-- class = col-7 -->
 </div><!-- class = row -->
