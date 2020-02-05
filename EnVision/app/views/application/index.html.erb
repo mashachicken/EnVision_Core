@@ -2,34 +2,34 @@
   <div class="col-4">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-text"> Informative header </h4>
+        <h4 class="card-text"> The Human Fingerprint on Greenhouse Gases </h4>
       </div><!-- class = card-body -->
       <div class="card-body">
-        <p class="card-text">
-          The Human Fingerprint on Greenhouse Gases
+          <h5> Why is it important? </h5>
+          <p class="card-text">
           Climate Change is the defining issue of our time and we are at a defining moment. From shifting weather patterns that threaten food production, to rising sea levels that increase the risk of catastrophic flooding, the impacts of climate change are global in scope and unprecedented in scale. After more than a century and a half of industrialization, deforestation, and large scale agriculture, quantities of greenhouse gases in the atmosphere have risen to record levels not seen in three million years. Without drastic action today, adapting to these impacts in the future will be more difficult and costly.
 
-        </p>
-        <p class="card-text">
+        </p> <br>
+        <!-- <p class="card-text">
           What are greenhouse gases?
           The figures for greenhouse gas emissions are in kilograms of carbon dioxide equivalents (CO2eq). This is a unit that converts the impact of different kinds of greenhouse gases, like methane and nitrous oxide, to the equivalent amount of carbon dioxide
 
-        </p>
-        <p class="card-text">
-          How much impact does the food have?
+        </p> -->
+          <h5>How much impact does the food have? </h5>
+          <p class="card-text">
           Food production is responsible for a quarter of all greenhouse gas emissions, contributing to global warming, according to a University of Oxford study.
           Their findings showed that meat and other animal products are responsible for more than half of food-related greenhouse gas emissions, despite providing only a fifth of the calories we eat and drink.
           Of all the products analysed in the study, beef and lamb were found to have by far the most damaging effect on the environment.
         </p>
-        <p class="card-text">
-          Ways to improve:
-
-          Reduce your food waste
-          Favor plant-based products
-          Buy less stuff
-          Drive/fly less
-          Vote for the right people
-
+          <h5>Ways to improve:</h5>
+          <p class="card-text"> <br>
+          <ul>
+          <li> Reduce your food waste </li>
+          <li> Favor plant-based products </li>
+          <li> Buy less stuff </li>
+          <li> Drive/fly less </li>
+          <li> Vote for the right people </li>
+          </ul>
         </p>
         <p id="test"> test </p>
       </div><!-- class = card-body -->
@@ -45,16 +45,12 @@
         <h3> Survey Results</h3>
       </div><!-- class = card-body -->
       <div class="card-body">
-        <p> Your diet has an impact on the environment! These are the effects it has.</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"> 
-            <p><%= @diet.get_diet_nutrition %><p>
-          </li>
+          <li class="list-group-item"><h6>Nutritional information:</h6> <%= @diet.get_diet_nutrition %></li>
+          <li class="list-group-item"><h6>Environmental impact of your diet:</h6>  <%= @diet.get_diet_environment %></li>
 
-          <li class="list-group-item"> <%= @diet.get_diet_environment %></li>
-
-          <li class="list-group-item"> About <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
-          <li class="list-group-item">Thats about <%= (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year. </li>
+          <li class="list-group-item"><h6>Environmental impact of your driving:</h6> <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
+          <li class="list-group-item"><h5>Thats about <%= (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year.</h5> </li>
         </ul>
       </div><!-- class = card-body -->
       <div class="card-footer">
