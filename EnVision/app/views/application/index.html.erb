@@ -31,7 +31,7 @@
           Vote for the right people
 
         </p>
-
+        <p id="test"> test </p>
       </div><!-- class = card-body -->
     </div><!-- class = card -->
   </div><!-- class = col-4 -->
@@ -42,24 +42,14 @@
     <% @diet = Diet.new(params[:dietOptions]) %>
     <div class="card">
       <div class="card-header">
-        <h3> Results Header </h3>
+        <h3> Survey Results</h3>
       </div><!-- class = card-body -->
       <div class="card-body">
-        <% case params[:dietOptions] %>
-        <% when "Average" %>
-        <p> You have chosen an average diet </p>
-        <% when "Meat Lover" %>
-        <p> You love consuming connective tissues of animals </p>
-        <% when "No Beef" %>
-        <img src="https://archive.sltrib.com/images/2011/0926/food_blogs_wheresthebeef~0.jpg">
-        <% when "Vegetarian" %>
-        <img src="https://pics.esmemes.com/that-moment-when-tour-steak-on-anduou-canalreadu-reel-your-3593781.png">
-        <% when "Vegan" %>
-        <p> You are vegan and I can't really think of a good joke for that, sorry. Your lifestyle is legit and probably inevitable in a world of rising population. But we'll see. Either way you be you. </p>
-        <% end %>
         <p> Your diet has an impact on the environment! These are the effects it has.</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"> <%= @diet.get_diet_nutrition %></li>
+          <li class="list-group-item"> 
+            <p><%= @diet.get_diet_nutrition %><p>
+          </li>
 
           <li class="list-group-item"> <%= @diet.get_diet_environment %></li>
 

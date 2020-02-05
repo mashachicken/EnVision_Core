@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ #city_background {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     height: 50px;
+     width: 100%;
+     background-image: url("/city.png");
+     background-repeat: repeat-x;
+     background-size: auto 100%;
+ }
+
+.row {
+  padding-bottom: 50px !important;
+}
