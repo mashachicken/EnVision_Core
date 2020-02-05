@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EnVisionRb</title>
+  <title>EnVision</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -29,7 +29,7 @@
           <%= link_to('Edit registration', edit_user_registration_path) %>
         </li>
         <li class="nav-link">
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>  
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
         </li>
         <% else %>
         <li class="nav-link">
