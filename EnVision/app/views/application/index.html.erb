@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col-4">
+  <div class="col-1"></div>
+  <div class="col-3">
     <div class="card">
       <div class="card-header">
         <h4 class="card-text"> The Human Fingerprint on Greenhouse Gases </h4>
@@ -34,9 +35,9 @@
         <p id="test"> test </p>
       </div><!-- class = card-body -->
     </div><!-- class = card -->
-  </div><!-- class = col-4 -->
+  </div><!-- class = col-3 -->
   <div class="col-1"></div>
-  <div class="col-7">
+  <div class="col-6">
     <img src='https://i1.wp.com/shrinkthatfootprint.com/wp-content/uploads/2013/01/samplediets1.gif?resize=540%2C435'>
     <% if params[:dietOptions] %>
     <% @diet = Diet.new(params[:dietOptions]) %>
@@ -48,7 +49,6 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><h6>Nutritional information:</h6> <%= @diet.get_diet_nutrition %></li>
           <li class="list-group-item"><h6>Environmental impact of your diet:</h6>  <%= @diet.get_diet_environment %></li>
-
           <li class="list-group-item"><h6>Environmental impact of your driving:</h6> <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
           <li class="list-group-item"><h5>Thats about <%= @total (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year.</h5> </li>
         </ul>
@@ -121,5 +121,6 @@
     </div><!-- class = card -->
     <%=flash[:result]%>
     <% end %>
-  </div><!-- class = col-7 -->
+  </div><!-- class = col-6 -->
+  <div class="col-1"></div>
 </div><!-- class = row -->
