@@ -32,7 +32,6 @@
             <li> Vote for the right people </li>
           </ul>
         </p>
-        <p id="test"> test </p>
       </div><!-- class = card-body -->
     </div><!-- class = card -->
   </div><!-- class = col-3 -->
@@ -41,19 +40,19 @@
     <img src='https://i1.wp.com/shrinkthatfootprint.com/wp-content/uploads/2013/01/samplediets1.gif?resize=540%2C435'>
     <% if params[:dietOptions] %>
     <% @diet = Diet.new(params[:dietOptions]) %>
+
+    <% score = params[:home].to_i + params[:water].to_i + params[:household].to_i + params[:waste].to_i + (24 - params[:recycle].to_i*4) %>
     <div class="card">
       <div class="card-header">
-        <h3> Survey Results</h3>
+        <h3>Survey Results</h3>
       </div><!-- class = card-body -->
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><h6>Nutritional information:</h6> <%= @diet.get_diet_nutrition %></li>
           <li class="list-group-item"><h6>Environmental impact of your diet:</h6>  <%= @diet.get_diet_environment %></li>
           <li class="list-group-item"><h6>Environmental impact of your driving:</h6> <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
-
-          <li class="list-group-item"><h6>Environmental impact of your electricity use:</h6> <%= (params[:electricity].to_i * 365 * 0.000707).round(2) %> tons of CO2 are emitted due to your driving habits </li>
-          <li class="list-group-item"><h5>Thats about <%= @total = (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403) + (params[:electricity].to_i * 365 * 0.000707)).round(2) %> tons of CO2 emissions each year.</h5> </li>
-
+          <li class="list-group-item"><h5>Thats about <%= @total = @diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403) %> tons of CO2 emissions each year.</h5> </li>
+          <li class="list-group-item"> <h5>Your carbon footprint score is <%= score %></h5></li>
         </ul>
       </div><!-- class = card-body -->
       <div class="card-footer">
@@ -62,7 +61,7 @@
         <form class="" action="/save_result" method="get">
 
           <input type="hidden" name="total" value= "<%= @total %>">
-
+          <input type="hidden" name="score" value= "<%= score %>"
           <button type="submit" class="btn btn-primary">Save Results</button>
         </form>
 
@@ -79,7 +78,7 @@
           <form id="survey">
             <div class="form-group">
               <p>Question 1</p>
-              <label for="diet type">Choose the diet from those above that most closely matches your own </label>
+              <label for="diet type">Choose the diet from those above that most closely matches your own</label>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="dietOptions" id="averageDiet" value="Average" checked>
                 <label class="form-check-label" for="averageDiet">
@@ -121,7 +120,7 @@
               <p>Question 3</p>
               <p>How many people are in your household?</p>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="household" id="one" value="14">
+                <input class="form-check-input" type="radio" name="household" id="one" value="14" required>
                 <label class="form-check-label" for="one">
                   1
                 </label>
@@ -163,8 +162,6 @@
                 </label>
               </div>
             </div>
-
-
             <div class="form-group">
               <p>Question 4</p>
               <p>How big is the house you live in?</p>
@@ -181,7 +178,7 @@
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="home" id="small" value="4">
+                <input class="form-check-input" type="radio" name="home" id="small" value="4" required>
                 <label class="form-check-label" for="small">
                   Small
                 </label>
@@ -197,7 +194,7 @@
               <p>Question 5</p>
               <p>How often do you run your dishwasher?</p>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="water" id="nine" value="3">
+                <input class="form-check-input" type="radio" name="water" id="nine" value="3" required>
                 <label class="form-check-label" for="nine">
                   9x/wk
                 </label>
@@ -219,7 +216,7 @@
               <p>Question 6</p>
               <p>How many household purchases(furniture, electronics, or other household gadgets) do you make?</p>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="household" id="seven_plus" value="10">
+                <input class="form-check-input" type="radio" name="household" id="seven_plus" value="10" required>
                 <label class="form-check-label" for="seven">
                   More then 7 items a year
                 </label>
@@ -253,7 +250,7 @@
               <p>Question 7</p>
               <p>How much waste do you produce?</p>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="waste" id="4_cans" value="10">
+                <input class="form-check-input" type="radio" name="waste" id="4_cans" value="10" required>
                 <label class="form-check-label" for="4_cans">
                   4 garbage cans a week
                 </label>
@@ -294,7 +291,7 @@
                 <li>Steel</li>
                 <li>Food waste (composting)</li>
                 </ul>
-                <input type="number" name="recycle" min=0 max=6>
+                <input type="number" name="recycle" min=0 max=6 required>
                 <label for="recycle"></label>
                 </div>
 
