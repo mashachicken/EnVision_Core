@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-8">
+    <% @users.each do |user| %>
+    <div class="card">
+      <div class="card-header">
+        <h5><%= user.email %></h5>
+      </div>
+      <div class="card-body">
+        <h5> Welcome <%= user.email %> </h5><br>
+
+        <h5> CO2 score: <%=user.footprint %> tonnes per year. </h5> <br>
+
+        <h5> <%= user.quote %> </h5><br>
+
+        <img src=<%= user.pic %>></img> <br><br>
+      </div><!-- class = card-body -->
+    </div><!-- class = card -->
+    <% end %>
+  </div><!-- class = col-8 -->
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header">
+        Leaderboard (top 10)
+      </div><!-- class = card-header -->
+      <div class="card-body">
+        <ol class="list-group list-group-flush">
+          <% @users.top_ten.each do |user| %>
+          <li class="list-group-item">
+            <a href="/users/<%=user.id%>"><%=user.email%></a>: <p><%=user.footprint%>
+            </li><!-- class = list-group-item -->
+            <% end %>
+          </ol><!-- class = list-group list-group-flush -->
+        </div><!-- class=card-body-->
+      </div>
+    </div>
+  </div><!-- class = row -->

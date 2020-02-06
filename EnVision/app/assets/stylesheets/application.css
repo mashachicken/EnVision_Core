@@ -1,3 +1,4 @@
+
 /*
 * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
@@ -23,6 +24,7 @@ background-image: url("/city.png");
 background-repeat: repeat-x;
 background-size: auto 100%;
 } */
+
 .row {
   padding-bottom: 50px !important;
 
@@ -77,4 +79,12 @@ body {
 
 #card1 {
   width: 20cm;
+}
+img {
+  width: 500px;
+  height: 550px;
+}
+.card {
+  margin-left: 3%;
+  margin-right: 3%;
 }
