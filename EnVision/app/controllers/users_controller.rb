@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   def result
     @user = User.find(current_user.id)
     @user.footprint = params[:total]
+    @user.score = params[:score]
     @user.save
     flash[:result] = "Results Saved!"
     redirect_to '/'

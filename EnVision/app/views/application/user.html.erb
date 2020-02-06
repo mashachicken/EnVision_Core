@@ -6,7 +6,8 @@
   <div class="card-body">
     <h5> Welcome <%= current_user.email %> </h5><br>
 
-    <h5> Your C02 is  <%= current_user.footprint %> tonnes per year. </h5> <br>
+    <h5> Your C02 output is  <%= current_user.footprint %> tonnes per year. </h5> <br>
+    <h5> Your Score is  <%= current_user.score %> </h5> <br>
 
     <% if current_user.quote = nil %>
     <p>Welcome to your user page! Here you can track your average C02, post about changes you are making to improve your emissions score, and customize your profile.</p>
