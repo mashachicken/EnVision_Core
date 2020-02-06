@@ -24,7 +24,12 @@ background-image: url("/city.png");
 background-repeat: repeat-x;
 background-size: auto 100%;
 } */
-
+.list-group-item {
+  background-color: rgba(18, 104, 101, 0.8);
+}
+.alert {
+  color: white;
+}
 .row {
   padding-bottom: 50px !important;
 
@@ -32,8 +37,9 @@ background-size: auto 100%;
 .card {
   background-color: rgba(18, 104, 101, 0.8);
   /* background: url("/fok.jpeg") top center !important; */
-  background-size: 100% 100%;
+  background-size: 100%;
   background-repeat: no-repeat !important;
+
 }
 body {
   padding-right: -10px !important;
@@ -80,11 +86,29 @@ body {
 #card1 {
   width: 20cm;
 }
-img {
-  width: 500px;
-  height: 550px;
-}
-.card {
+
+/* .card {
   margin-left: 3%;
   margin-right: 3%;
+} */
+.container{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+text-align: center !important;
 }
+
+.center {
+  width: 2500px; /* or whatever your width is */
+  margin: 10px auto;
+  text-align: left;
+  heigh: 15cm;
+}
+/* .card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+} */
