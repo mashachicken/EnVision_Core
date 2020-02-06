@@ -6,8 +6,8 @@
         <h4 class="card-text"> The Human Fingerprint on Greenhouse Gases </h4>
       </div><!-- class = card-body -->
       <div class="card-body">
-          <h5> Why is it important? </h5>
-          <p class="card-text">
+        <h5> Why is it important? </h5>
+        <p class="card-text">
           Climate Change is the defining issue of our time and we are at a defining moment. From shifting weather patterns that threaten food production, to rising sea levels that increase the risk of catastrophic flooding, the impacts of climate change are global in scope and unprecedented in scale. After more than a century and a half of industrialization, deforestation, and large scale agriculture, quantities of greenhouse gases in the atmosphere have risen to record levels not seen in three million years. Without drastic action today, adapting to these impacts in the future will be more difficult and costly.
 
         </p> <br>
@@ -16,20 +16,20 @@
           The figures for greenhouse gas emissions are in kilograms of carbon dioxide equivalents (CO2eq). This is a unit that converts the impact of different kinds of greenhouse gases, like methane and nitrous oxide, to the equivalent amount of carbon dioxide
 
         </p> -->
-          <h5>How much impact does the food have? </h5>
-          <p class="card-text">
+        <h5>How much impact does the food have? </h5>
+        <p class="card-text">
           Food production is responsible for a quarter of all greenhouse gas emissions, contributing to global warming, according to a University of Oxford study.
           Their findings showed that meat and other animal products are responsible for more than half of food-related greenhouse gas emissions, despite providing only a fifth of the calories we eat and drink.
           Of all the products analysed in the study, beef and lamb were found to have by far the most damaging effect on the environment.
         </p>
-          <h5>Ways to improve:</h5>
-          <p class="card-text"> <br>
+        <h5>Ways to improve:</h5>
+        <p class="card-text"> <br>
           <ul>
-          <li> Reduce your food waste </li>
-          <li> Favor plant-based products </li>
-          <li> Buy less stuff </li>
-          <li> Drive/fly less </li>
-          <li> Vote for the right people </li>
+            <li> Reduce your food waste </li>
+            <li> Favor plant-based products </li>
+            <li> Buy less stuff </li>
+            <li> Drive/fly less </li>
+            <li> Vote for the right people </li>
           </ul>
         </p>
         <p id="test"> test </p>
@@ -50,7 +50,8 @@
           <li class="list-group-item"><h6>Nutritional information:</h6> <%= @diet.get_diet_nutrition %></li>
           <li class="list-group-item"><h6>Environmental impact of your diet:</h6>  <%= @diet.get_diet_environment %></li>
           <li class="list-group-item"><h6>Environmental impact of your driving:</h6> <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
-          <li class="list-group-item"><h5>Thats about <%= @total (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403)).round(2) %> tons of CO2 emissions each year.</h5> </li>
+          <li class="list-group-item"><h6>Environmental impact of your electricity use:</h6> <%= (params[:electricity].to_i * 365 * 0.000707).round(2) %> tons of CO2 are emitted due to your driving habits </li>
+          <li class="list-group-item"><h5>Thats about <%= @total = (@diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403) + (params[:electricity].to_i * 365 * 0.000707)).round(2) %> tons of CO2 emissions each year.</h5> </li>
         </ul>
       </div><!-- class = card-body -->
       <div class="card-footer">
@@ -112,15 +113,196 @@
               <p>Question 2</p>
               <p>How many miles do you drive on a particular day?</p>
               <input type="number" name="miles" min=0>
-              <label for="miles">Miles</label>
+              <label for="miles"></label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </ul>
-      </div><!-- class = card-body -->
-    </div><!-- class = card -->
-    <%=flash[:result]%>
-    <% end %>
-  </div><!-- class = col-6 -->
-  <div class="col-1"></div>
-</div><!-- class = row -->
+            <div class="form-group">
+              <p>Question 3</p>
+              <p>How many people are in your household?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="one" value="14">
+                <label class="form-check-label" for="one">
+                  1
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="two" value="12">
+                <label class="form-check-label" for="two">
+                  2
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="three" value="10">
+                <label class="form-check-label" for="three">
+                  3
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="four" value="8">
+                <label class="form-check-label" for="four">
+                  4
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="five" value="6">
+                <label class="form-check-label" for="five">
+                  5
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="six" value="4">
+                <label class="form-check-label" for="six">
+                  6
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="six_plus" value="2">
+                <label class="form-check-label" for="six_plus">
+                  more than 6 people
+                </label>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <p>Question 4</p>
+              <p>How big is the house you live in?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="home" id="large" value="10">
+                <label class="form-check-label" for="large">
+                  Large
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="home" id="medium" value="7">
+                <label class="form-check-label" for="medium">
+                  Medium
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="home" id="small" value="4">
+                <label class="form-check-label" for="small">
+                  Small
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="home" id="apt" value="2">
+                <label class="form-check-label" for="apt">
+                  Apartments
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <p>Question 5</p>
+              <p>How often do you run your dishwasher?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="water" id="nine" value="3">
+                <label class="form-check-label" for="nine">
+                  9x/wk
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="water" id="four_to_nine" value="2">
+                <label class="form-check-label" for="four_to_nine">
+                  4-9x/wk
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="water" id="one_to_three" value="1">
+                <label class="form-check-label" for="one_to_three">
+                  1-3/wk
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <p>Question 6</p>
+              <p>How many household purchases(furniture, electronics, or other household gadgets) do you make?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="seven_plus" value="10">
+                <label class="form-check-label" for="seven">
+                  More then 7 items a year
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="five_to_seven" value="8">
+                <label class="form-check-label" for="five_to_seven">
+                  5-7 items a year
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="three_to_five" value="6">
+                <label class="form-check-label" for="three_to_five">
+                  3-5 items a year
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="less_then_three" value="4">
+                <label class="form-check-label" for="less_then_three">
+                  Less then 3 items a year
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="household" id="nothing" value="2">
+                <label class="form-check-label" for="nothing">
+                  Nothing
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <p>Question 7</p>
+              <p>How much waste do you produce?</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waste" id="4_cans" value="10">
+                <label class="form-check-label" for="4_cans">
+                  4 garbage cans a week
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waste" id="3_cans" value="8">
+                <label class="form-check-label" for="3_cans">
+                  3 garbage cans each week
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waste" id="2_cans" value="6">
+                <label class="form-check-label" for="2_cans">
+                  2 garbage cans a week
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waste" id="one_can" value="4">
+                <label class="form-check-label" for="one_can">
+                  1 garbage can a week
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="waste" id="half" value="2">
+                <label class="form-check-label" for="half">
+                  half of a garbage can or less per week
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <p>Question 8</p>
+              <p>How many of each categories do you recycle?</p>
+              <ul>
+                <li>Glass</li>
+                <li>Plastic</li>
+                <li>Paper</li>
+                <li>Aluminum</li>
+                <li>Steel</li>
+                <li>Food waste (composting)</li>
+                </ul>
+                <input type="number" name="recycle" min=0 max=6>
+                <label for="recycle"></label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </ul>
+          </div><!-- class = card-body -->
+        </div><!-- class = card -->
+        <%=flash[:result]%>
+        <% end %>
+      </div><!-- class = col-6 -->
+      <div class="col-1"></div>
+    </div><!-- class = row -->
