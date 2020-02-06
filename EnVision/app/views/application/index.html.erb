@@ -41,7 +41,7 @@
     <% if params[:dietOptions] %>
     <% @diet = Diet.new(params[:dietOptions]) %>
 
-    <% score = params[:home].to_i + params[:water].to_i + params[:household].to_i + params[:waste].to_i + (24 - params[:recycle].to_i*4) %>
+    <% score = params[:home].to_i + params[:water].to_i + params[:household].to_i + params[:waste].to_i + (24 - params[:recycle].to_i*4) - 7 %>
     <div class="card">
       <div class="card-header">
         <h3>Survey Results</h3>
@@ -52,7 +52,7 @@
           <li class="list-group-item"><h6>Environmental impact of your diet:</h6>  <%= @diet.get_diet_environment %></li>
           <li class="list-group-item"><h6>Environmental impact of your driving:</h6> <%= (params[:miles].to_i * 365 * 0.000403).round(2) %> tons of CO2 are emitted due to your driving habits </li>
           <li class="list-group-item"><h5>Thats about <%= @total = @diet.get_diet_carbon.to_i + (params[:miles].to_i * 365 * 0.000403) %> tons of CO2 emissions each year.</h5> </li>
-          <li class="list-group-item"> <h5>Your carbon footprint score is <%= score %></h5></li>
+          <li class="list-group-item"><h5>Your carbon footprint score is <%= score %></h5></li>
         </ul>
       </div><!-- class = card-body -->
       <div class="card-footer">
@@ -61,7 +61,7 @@
         <form class="" action="/save_result" method="get">
 
           <input type="hidden" name="total" value= "<%= @total %>">
-          <input type="hidden" name="score" value= "<%= score %>"
+          <input type="hidden" name="score" value= "<%= score %>">
           <button type="submit" class="btn btn-primary">Save Results</button>
         </form>
 
