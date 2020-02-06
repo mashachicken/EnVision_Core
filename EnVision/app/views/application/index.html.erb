@@ -1,3 +1,4 @@
+<div class="sidebar">
 <div class="row">
   <div class="col-1"></div>
   <div class="col-3">
@@ -38,7 +39,9 @@
   </div><!-- class = col-3 -->
   <div class="col-1"></div>
   <div class="col-6">
-    <img src='https://i1.wp.com/shrinkthatfootprint.com/wp-content/uploads/2013/01/samplediets1.gif?resize=540%2C435'>
+
+         <img src='https://i1.wp.com/shrinkthatfootprint.com/wp-content/uploads/2013/01/samplediets1.gif?resize=540%2C435' width="750px" height="500px">   <br> <br>
+
     <% if params[:dietOptions] %>
     <% @diet = Diet.new(params[:dietOptions]) %>
     <div class="card">
@@ -70,7 +73,8 @@
       </div><!-- class = card-footer -->
     </div><!-- class = card -->
     <% else %>
-    <div class="card">
+
+    <div class="card" id="card1">
       <div class="card-header">
         <h3>Your Carbon Footprint</h3>
       </div><!-- class = card-body -->
@@ -303,8 +307,10 @@
             </ul>
           </div><!-- class = card-body -->
         </div><!-- class = card -->
+
         <%=flash[:result]%>
         <% end %>
       </div><!-- class = col-6 -->
       <div class="col-1"></div>
     </div><!-- class = row -->
+</div>

@@ -1,64 +1,80 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- /* #city_background {
-     position: fixed;
-     bottom: 0;
-     left: 0;
-     height: 50px;
-     width: 100%;
-    background-image: url("/city.png");
-     background-repeat: repeat-x;
-     background-size: auto 100%;
- } */
- .row {
-   padding-bottom: 50px !important;
- }
- body {
-   margin: 0;
-   padding: 0;
-   background-color: #161E2C;
-   font-family: 'Open Sans', sans-serif;
-   overflow-x: hidden;
- }
- .main-body {
-   float: left !important;
-   background: url("/night.jpeg") top center !important;
-   background-repeat: no-repeat !important;
-   width: 100% !important;
-   background-size: 100% auto !important;
- background-attachment: fixed !important;
- float: left !important;
- }
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+/* #city_background {
+position: fixed;
+bottom: 0;
+left: 0;
+height: 50px;
+width: 100%;
+background-image: url("/city.png");
+background-repeat: repeat-x;
+background-size: auto 100%;
+} */
+.row {
+  padding-bottom: 50px !important;
 
- .main-body {
-   background-attachment: scroll;
-   background-size: auto;
+}
+.card {
+  background-color: rgba(18, 104, 101, 0.8);
+  /* background: url("/fok.jpeg") top center !important; */
+  background-size: 100% 100%;
+  background-repeat: no-repeat !important;
+}
+body {
+  padding-right: -10px !important;
+  padding-left: -50px !important;
+  margin: 0;
+  padding: 0;
+  background-color: #161E2C;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  background: url("/night.jpeg") top center !important;
+
 }
 .main-body {
-	float: left;
-	width: 100%;
-	background: url(../images/page-bg.jpg) no-repeat top center;
-	background-size: 100% auto;
-	background-attachment: fixed;
+  float: left !important;
+  background-repeat: no-repeat !important;
+  width: 100% !important;
+  background-size: 100% auto !important;
+  background-attachment: fixed !important;
+  float: left !important;
+
 }
-.container {
-  padding-left: 40px;
+
+.main-body {
+  background-attachment: scroll;
+  background-size: auto;
+}
+
+.container1 {
+  padding-left: 40px ;
   padding-right: 40px;
+  display: block;
 }
 .main-page {
-	position: relative;
-	margin-top: 80px;
+  position: relative;
+  margin-top: 80px;
+}
+.card-header {
+  background-color: rgba(17, 41, 81, 0.8)
+}
+
+#card1 {
+  width: 20cm;
 }
