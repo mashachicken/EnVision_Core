@@ -24,6 +24,10 @@ background-image: url("/city.png");
 background-repeat: repeat-x;
 background-size: auto 100%;
 } */
+.avatar {
+  width: 390px;
+  
+}
 .list-group-item {
   background-color: rgba(18, 104, 101, 0.8);
 }
