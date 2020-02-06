@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is an API for the purposes of the Envision project, used to store and present information on environmental impacts. Used for purposes of back-end support for our main server, this is not designed for use by end-users. It can however support them.
 
-Things you may want to cover:
+### prerequisites
+ruby 2.6.5
+postgres server
 
-* Ruby version
+### setup
+Before starting setup, ensure the above prerequisites are installed
 
-* System dependencies
+follow these steps
+```bash
+  bundle install
+  rake db:create
+  rake db:schema:load
+  rake db:seed
+  rails s
+```
 
-* Configuration
 
-* Database creation
+### Endpoints
 
-* Database initialization
+get '/diets/search'
+params:
+  - name (string)
+description: Returns diet information with a matching name of the parameter
 
-* How to run the test suite
+get '/diets'
+Returns all diets
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+get '/diets/[:diet_id]'
+Returns a diet with a matching ID
