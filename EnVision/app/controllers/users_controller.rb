@@ -39,14 +39,14 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @user.pic = params[:pic]
     @user.save
-    render :user
+    redirect_to '/user'
   end
 
   def add_quote
     @user = User.find(current_user.id)
     @user.quote = params[:quote]
     @user.save
-    render :user
+    redirect_to '/user'
   end
 
   private
