@@ -17,3 +17,4 @@ follow these steps
   rake db:seed
   rails s
 ```
+             
