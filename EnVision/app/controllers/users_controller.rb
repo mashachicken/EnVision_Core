@@ -36,15 +36,15 @@ class UsersController < ApplicationController
   end
 
   def add_pic
-    @user.pic = params[:pic]
     @user = User.find(current_user.id)
+    @user.pic = params[:pic]
     @user.save
     render :user
   end
 
   def add_quote
-    @user.quote = params[:quote]
     @user = User.find(current_user.id)
+    @user.quote = params[:quote]
     @user.save
     render :user
   end
