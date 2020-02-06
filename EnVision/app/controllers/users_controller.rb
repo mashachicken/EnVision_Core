@@ -22,10 +22,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    # @users = User.all
-    @posts = @user.posts
-    render :show
+    @user = User.find(current_user.id)
+    @users = User.all
+    render :user
   end
 
   def result
@@ -36,9 +35,23 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
+  def add_pic
+    @user = User.find(current_user.id)
+    @user.pic = params[:pic]
+    @user.save
+    render :user
+  end
+
+  def add_quote
+    @user = User.find(current_user.id)
+    @user.quote = params[:quote]
+    @user.save
+    render :user
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :password, :username, :footprint)
+    params.require(:user).permit(:email, :username, :password, :username, :footprint, :pic, :quote)
   end
 end

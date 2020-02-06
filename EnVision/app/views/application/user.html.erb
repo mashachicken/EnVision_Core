@@ -1,0 +1,38 @@
+
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-text"> Profile Page</h4>
+  </div><!-- class = card-body -->
+  <div class="card-body">
+    <h5> Welcome <%= current_user.email %> </h5><br>
+
+    <h5> Your C02 is  <%= current_user.footprint %> tonnes per year. </h5> <br>
+
+    <% if current_user.quote = nil %>
+    <p>Welcome to your user page! Here you can track your average C02, post about changes you are making to improve your emissions score, and customize your profile.</p>
+    <% else %>
+
+    <h5> <%= current_user.quote %> </h5>
+
+    <% end %>
+    <form class="pic" action="/update_pic" method="get">
+
+      <input type="text" name="pic" value="">
+
+      <button type="submit" class="btn btn-primary">Save pic URL</button>
+
+    </form><br>
+
+    <form class="quote" action="/update_quote" method="get">
+
+        <input type="text" name="quote" value="">
+
+        <button type="submit" class="btn btn-primary">Save Quote</button>
+    </form>
+
+    <p class="card-text">
+
+
+    </div><!-- class = card-body -->
+  </div><!-- class = card -->
+</div>
