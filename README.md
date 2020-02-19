@@ -1,4 +1,4 @@
-# EnVision_Core
+# EnVision Core
 ## _Carbon Footprint Tracker_
 ## Description
 ### _An application and an API that determines user's environmental impact and carbon footprint._
